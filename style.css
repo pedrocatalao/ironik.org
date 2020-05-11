@@ -1,3 +1,7 @@
+:root {
+  --animation-time: 2s; 
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +14,7 @@ canvas {
   transition: 1050ms all ease-in-out;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  animation: interference 6s infinite;
+  animation: interference var(--animation-time) infinite;
 }
 
 @keyframes interference {
@@ -20,11 +24,11 @@ canvas {
       filter: blur(1.3px) brightness(120%) hue-rotate(140deg) saturate(270%);
     }
 
-    1.1% {
-        transform: skewX(12deg);
+    1% {
+        transform: skewX(7deg);
     }
 
-    1.7% {
+    2% {
         transform: skewX(0deg);
     }
 
@@ -47,7 +51,7 @@ canvas {
 
     84% {
         transform: skewX(0deg);
-        -webkit-filter: filter: blur(1.8px) brightness(120%) hue-rotate(165deg) saturate(270%);
+        -webkit-filter: filter: blur(1.7px) brightness(120%) hue-rotate(165deg) saturate(270%);
         filter: blur(1.8px) brightness(120%) hue-rotate(165deg) saturate(370%);
     }
 
@@ -57,11 +61,11 @@ canvas {
         filter: blur(1.3px) brightness(120%) hue-rotate(150deg) saturate(370%);
     }
 
-    95.1% {
-        transform: skewX(-5deg)
+    95% {
+        transform: skewX(-3deg)
     }
 
-    95.7% {
+    96% {
         transform: skewX(1deg)
     }
 
