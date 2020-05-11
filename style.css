@@ -17,21 +17,45 @@ canvas {
   animation: interference var(--animation-time) infinite;
 }
 
+#overlay {
+    cursor: pointer;
+    opacity: 0.55;
+    font-family: Shadows Into Light;
+    font-size: 35px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    background-color: #f3ec78;
+    background-image: linear-gradient(to right, orange , yellow, yellow, green, cyan, blue, violet);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: 50px;
+    margin-left: 30px;
+    color: #ff0000;
+    animation: rgb 4s linear infinite;
+}
+
+#container canvas, #overlay {
+  position: absolute;
+}
+
 @keyframes interference {
     0% {
       transform: skewX(0deg);
       -webkit-filter: filter: blur(1.3px) brightness(120%) hue-rotate(140deg) saturate(270%);
       filter: blur(1.3px) brightness(120%) hue-rotate(140deg) saturate(270%);
     }
-
     1% {
         transform: skewX(7deg);
     }
-
     2% {
         transform: skewX(0deg);
     }
-
     31% {
         transform: skewX(-2deg);
         -webkit-filter: filter: blur(1.6px) brightness(120%) hue-rotate(155deg) saturate(800%);
@@ -42,34 +66,40 @@ canvas {
         -webkit-filter: filter: blur(1.2px) brightness(120%) hue-rotate(170deg) saturate(800%);
         filter: blur(1.2px) brightness(120%) hue-rotate(170deg) saturate(800%);
     }
-
     54% {
         transform: skewX(0deg);
         -webkit-filter: filter: blur(1.3px) brightness(120%) hue-rotate(180deg) saturate(270%);
         filter: blur(1.3px) brightness(120%) hue-rotate(180deg) saturate(370%);
     }
-
     84% {
         transform: skewX(0deg);
         -webkit-filter: filter: blur(1.7px) brightness(120%) hue-rotate(165deg) saturate(270%);
         filter: blur(1.8px) brightness(120%) hue-rotate(165deg) saturate(370%);
     }
-
     94% {
         transform: skewX(1deg);
         -webkit-filter: filter: blur(1.3px) brightness(120%) hue-rotate(150deg) saturate(370%);
         filter: blur(1.3px) brightness(120%) hue-rotate(150deg) saturate(370%);
     }
-
     95% {
         transform: skewX(-3deg)
     }
-
     96% {
         transform: skewX(1deg)
     }
-
     100% {
         transform: skewX(0deg);
     }
+}
+
+@keyframes rgb {
+  0% {
+    filter: blur(0.4px) brightness(100%) hue-rotate(0deg);
+  }
+  50% {
+    filter: blur(0.8px) brightness(120%) hue-rotate(180deg);
+  }
+  100% {
+    filter: blur(0.4px) brightness(100%) hue-rotate(360deg);
+  }
 }
