@@ -21,7 +21,7 @@ canvas {
     cursor: pointer;
     opacity: 0.55;
     font-family: Shadows Into Light;
-    font-size: 35px;
+    font-size: 4.5vh;
     font-weight: 400;
     letter-spacing: 1.2px;
     background-color: #f3ec78;
@@ -36,11 +36,11 @@ canvas {
     left: 50%;
     margin-top: 50px;
     margin-left: 30px;
-    color: #ff0000;
-    animation: rgb 4s linear infinite;
+    text-shadow: 2px 2px 12px #000000;
+    animation: rgb 2.5s linear infinite;
 }
 
-#container canvas, #overlay {
+#container {
   position: absolute;
 }
 
@@ -94,12 +94,15 @@ canvas {
 
 @keyframes rgb {
   0% {
-    filter: blur(0.4px) brightness(100%) hue-rotate(0deg);
+    filter: blur(0.4px) brightness(90%) hue-rotate(0deg);
+  }
+  25% {
+    filter: blur(0.3px) brightness(80%) hue-rotate(90deg);
   }
   50% {
-    filter: blur(0.8px) brightness(120%) hue-rotate(180deg);
+    filter: blur(0.55px) brightness(100%) hue-rotate(180deg);
   }
   100% {
-    filter: blur(0.4px) brightness(100%) hue-rotate(360deg);
+    filter: blur(0.4px) brightness(90%) hue-rotate(360deg);
   }
 }

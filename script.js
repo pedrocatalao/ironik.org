@@ -6,7 +6,7 @@ var dnaText = {
     this.draw = function(ctx) {
       ctx.save();
       ctx.translate(this.x, this.y);
-      ctx.fillStyle = dnaText.rndmColor();
+      dnaText.rndmColor(ctx);
       ctx.fillRect(0, 0, this.radius, this.radius);
       ctx.restore();
     };
@@ -14,8 +14,9 @@ var dnaText = {
   init: function() {
     dnaText.canvas = document.querySelector('canvas');
     dnaText.ctx = dnaText.canvas.getContext('2d');
-    dnaText.W = window.innerWidth - 150;
-    dnaText.H = window.innerHeight - 150;
+    dnaText.W = window.innerWidth - window.innerWidth * 0.07;
+    dnaText.H = window.innerHeight - window.innerHeight * 0.07;
+    console.log(dnaText.H);
     dnaText.SpeckPositions = [];
     dnaText.Specks = [];
     dnaText.tmpCanvas = document.createElement('canvas');
@@ -24,13 +25,14 @@ var dnaText = {
     dnaText.canvas.width = dnaText.W;
     dnaText.canvas.height = dnaText.H;
 
+
     var cont = atob('aXJvbmlr');
     setInterval(function(){
       dnaText.changeLetter(cont);
       dnaText.getPixels(dnaText.tmpCanvas, dnaText.tmpCtx);
-    }, 330);
+    }, 700); // TRANSITION
 
-    dnaText.makeSpecks(135);
+    dnaText.makeSpecks(3000); // PARTICLES
     dnaText.animate();
   }, 
   currentPos: 0,
@@ -48,12 +50,13 @@ var dnaText = {
   },
   getPixels: function(canvas, ctx) {
     var keyword = dnaText.time,
-      gridX = 5,
-      gridY = 6;
+      gridX = 8,
+      gridY = 8;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    ctx.font = "180px courier";
-    ctx.fillText(keyword, canvas.width / 2 - ctx.measureText(keyword).width / 2, canvas.height / 2 + 80);
+    var fontSize = dnaText.H * 0.75
+    ctx.font = fontSize + "px Ubuntu, bold"
+    ctx.fillText(keyword, canvas.width / 2 - ctx.measureText(keyword).width / 2, canvas.height / 2 + fontSize * 0.32);
     var idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
     var buffer32 = new Uint32Array(idata.data.buffer);
     if (dnaText.SpeckPositions.length > 0) dnaText.SpeckPositions = [];
@@ -71,25 +74,25 @@ var dnaText = {
       p = dnaText.Specks[i];
       pPos = dnaText.SpeckPositions[i];
       if (dnaText.Specks.indexOf(p) === dnaText.SpeckPositions.indexOf(pPos)) {
-        p.x += (pPos.x - p.x) * .4;
-        p.y += (pPos.y - p.y) * .4;
+        p.x += (pPos.x - p.x) * .55;
+        p.y += (pPos.y - p.y) * .55;
         p.draw(dnaText.ctx);
       }
     }
   },
   animate: function() {
     requestAnimationFrame(dnaText.animate);
-    dnaText.ctx.fillStyle = '#050505';
+    dnaText.ctx.fillStyle = '#101010';
     dnaText.ctx.fillRect(0, 0, dnaText.W, dnaText.H);
     dnaText.animateSpecks();
   },
-  rndmColor: function() {
+  rndmColor: function(ctx) {
     var letters = '0123456789abcdef';
     var color = '#B';
     for (var i = 0; i < 5; i++) {
       color += letters[Math.floor(Math.random() * 16)];
     }
-    return color;
+    ctx.fillStyle = color
   }
 };
 
