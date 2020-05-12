@@ -19,8 +19,8 @@ canvas {
 
 #overlay {
     cursor: pointer;
-    opacity: 0.55;
-    font-family: Shadows Into Light;
+    opacity: 0.6;
+    font-family: 'Shadows Into Light';
     font-size: 4.5vh;
     font-weight: 400;
     letter-spacing: 1.2px;
@@ -36,8 +36,7 @@ canvas {
     left: 50%;
     margin-top: 50px;
     margin-left: 30px;
-    text-shadow: 2px 2px 12px #000000;
-    animation: rgb 2.5s linear infinite;
+    animation: rgb 3s linear infinite;
 }
 
 #container {
@@ -51,7 +50,7 @@ canvas {
       filter: blur(1.3px) brightness(120%) hue-rotate(140deg) saturate(270%);
     }
     1% {
-        transform: skewX(7deg);
+        transform: skewX(5deg);
     }
     2% {
         transform: skewX(0deg);
@@ -94,15 +93,18 @@ canvas {
 
 @keyframes rgb {
   0% {
-    filter: blur(0.4px) brightness(90%) hue-rotate(0deg);
+    filter: blur(0.45px) brightness(100%) hue-rotate(0deg);
+  }
+  15% {
+    filter: blur(0.85px)
   }
   25% {
-    filter: blur(0.3px) brightness(80%) hue-rotate(90deg);
+    filter: blur(0.45px) brightness(95%) hue-rotate(90deg);
   }
   50% {
-    filter: blur(0.55px) brightness(100%) hue-rotate(180deg);
+    filter: blur(0.7px) brightness(110%) hue-rotate(180deg);
   }
   100% {
-    filter: blur(0.4px) brightness(90%) hue-rotate(360deg);
+    filter: blur(0.45px) brightness(100%) hue-rotate(360deg);
   }
 }

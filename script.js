@@ -16,7 +16,6 @@ var dnaText = {
     dnaText.ctx = dnaText.canvas.getContext('2d');
     dnaText.W = window.innerWidth - window.innerWidth * 0.07;
     dnaText.H = window.innerHeight - window.innerHeight * 0.07;
-    console.log(dnaText.H);
     dnaText.SpeckPositions = [];
     dnaText.Specks = [];
     dnaText.tmpCanvas = document.createElement('canvas');
@@ -26,21 +25,21 @@ var dnaText = {
     dnaText.canvas.height = dnaText.H;
 
 
-    var cont = atob('aXJvbmlr');
+    var cont = atob("IGlyb25paw==");
     setInterval(function(){
       dnaText.changeLetter(cont);
       dnaText.getPixels(dnaText.tmpCanvas, dnaText.tmpCtx);
-    }, 700); // TRANSITION
+    }, 555); // TRANSITION
 
-    dnaText.makeSpecks(3000); // PARTICLES
-    dnaText.animate();
+      dnaText.makeSpecks(3500); // PARTICLES
+      dnaText.animate();
   }, 
   currentPos: 0,
   changeLetter: function(cont) {
     dnaText.time = cont[dnaText.currentPos];
     dnaText.currentPos++;
     if (dnaText.currentPos >= cont.length) {
-      dnaText.currentPos = 0;
+      dnaText.currentPos = 1;
     }
   },
   makeSpecks: function(num) {
@@ -54,9 +53,9 @@ var dnaText = {
       gridY = 8;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    var fontSize = dnaText.H * 0.75
-    ctx.font = fontSize + "px Ubuntu, bold"
-    ctx.fillText(keyword, canvas.width / 2 - ctx.measureText(keyword).width / 2, canvas.height / 2 + fontSize * 0.32);
+    var fontSize = dnaText.H * 0.6
+    ctx.font = fontSize + "px courier";
+    ctx.fillText(keyword, canvas.width / 2 - ctx.measureText(keyword).width / 2, canvas.height / 2 + fontSize * 0.4);
     var idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
     var buffer32 = new Uint32Array(idata.data.buffer);
     if (dnaText.SpeckPositions.length > 0) dnaText.SpeckPositions = [];
@@ -74,15 +73,15 @@ var dnaText = {
       p = dnaText.Specks[i];
       pPos = dnaText.SpeckPositions[i];
       if (dnaText.Specks.indexOf(p) === dnaText.SpeckPositions.indexOf(pPos)) {
-        p.x += (pPos.x - p.x) * .55;
-        p.y += (pPos.y - p.y) * .55;
+        p.x += (pPos.x - p.x) * .75;
+        p.y += (pPos.y - p.y) * .75;
         p.draw(dnaText.ctx);
       }
     }
   },
   animate: function() {
     requestAnimationFrame(dnaText.animate);
-    dnaText.ctx.fillStyle = '#101010';
+    dnaText.ctx.fillStyle = '#050505';
     dnaText.ctx.fillRect(0, 0, dnaText.W, dnaText.H);
     dnaText.animateSpecks();
   },
