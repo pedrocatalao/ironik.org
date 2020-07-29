@@ -2,7 +2,8 @@ var dnaText = {
   Speck: function(x, y) {
     this.x = x;
     this.y = y;
-    this.radius = Math.random() * 3;
+    var radz = Math.floor(window.innerHeight/250);
+    this.radius = Math.random() * (radz < 3 ? 3 : radz);
     this.draw = function(ctx) {
       ctx.save();
       ctx.translate(this.x, this.y);
@@ -48,13 +49,14 @@ var dnaText = {
     }
   },
   getPixels: function(canvas, ctx) {
+    var gridSize = Math.floor(dnaText.H/115);
     var keyword = dnaText.time,
-      gridX = 8,
-      gridY = 8;
+      gridX = (gridSize < 6 ? 6 : gridSize),
+      gridY = (gridSize < 6 ? 6 : gridSize);
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    var fontSize = dnaText.H * 0.6
-    ctx.font = fontSize + "px courier";
+    var fontSize = dnaText.H * 0.5
+    ctx.font = fontSize + "px Courier Prime";
     ctx.fillText(keyword, canvas.width / 2 - ctx.measureText(keyword).width / 2, canvas.height / 2 + fontSize * 0.4);
     var idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
     var buffer32 = new Uint32Array(idata.data.buffer);
@@ -81,7 +83,7 @@ var dnaText = {
   },
   animate: function() {
     requestAnimationFrame(dnaText.animate);
-    dnaText.ctx.fillStyle = '#050505';
+    dnaText.ctx.fillStyle = '#000000';
     dnaText.ctx.fillRect(0, 0, dnaText.W, dnaText.H);
     dnaText.animateSpecks();
   },
@@ -95,8 +97,29 @@ var dnaText = {
   }
 };
 
+var titles = [
+'isn\'t it?',
+'yeah baby!',
+'gtfo!',
+'l33t',
+'enough!',
+'really',
+'stop it'
+];
+
+function randText() {
+  overlay.style.opacity = 0.1;
+  setTimeout(setText, 150);
+}
+
+function setText() {
+  var i = (Math.random() * titles.length) | 0;
+  overlay.innerText = titles[i];
+  overlay.style.opacity = 0.75;
+}
+
 function changeAnimationTime() {
-  var dur = 4 + Math.random() * 6;
+  var dur = 5 + Math.random() * 6;
   canvas.style.setProperty('--animation-time', dur +'s');
 }
 
