@@ -30,7 +30,7 @@ var dnaText = {
     setInterval(function(){
       dnaText.changeLetter(cont);
       dnaText.getPixels(dnaText.tmpCanvas, dnaText.tmpCtx);
-    }, 555); // TRANSITION
+    }, 455); // TRANSITION
 
       dnaText.makeSpecks(3500); // PARTICLES
       dnaText.animate();
@@ -75,8 +75,8 @@ var dnaText = {
       p = dnaText.Specks[i];
       pPos = dnaText.SpeckPositions[i];
       if (dnaText.Specks.indexOf(p) === dnaText.SpeckPositions.indexOf(pPos)) {
-        p.x += (pPos.x - p.x) * .75;
-        p.y += (pPos.y - p.y) * .75;
+        p.x += (pPos.x - p.x) * 1.75;
+        p.y += (pPos.y - p.y) * 1.75;
         p.draw(dnaText.ctx);
       }
     }
