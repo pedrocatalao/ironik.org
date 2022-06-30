@@ -26,7 +26,7 @@ var dnaText = {
     dnaText.canvas.height = dnaText.H;
 
 
-    var cont = atob("IGlyb25paw==");
+    var cont = atob("aXJvbmlr8J+Yhg==");
     setInterval(function(){
       dnaText.changeLetter(cont);
       dnaText.getPixels(dnaText.tmpCanvas, dnaText.tmpCtx);
