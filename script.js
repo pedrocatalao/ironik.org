@@ -26,7 +26,7 @@ var dnaText = {
     dnaText.canvas.height = dnaText.H;
 
 
-    var cont = atob("aXJvbmlr8J+Yhg==");
+    var cont = atob("aXJvbmlrJSM=");
     setInterval(function(){
       dnaText.changeLetter(cont);
       dnaText.getPixels(dnaText.tmpCanvas, dnaText.tmpCtx);
@@ -108,7 +108,7 @@ var titles = [
 ];
 
 function randText() {
-  overlay.style.opacity = 0.1;
+  overlay.style.opacity = 0.5;
   setTimeout(setText, 150);
 }
 
