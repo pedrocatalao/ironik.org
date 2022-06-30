@@ -125,4 +125,4 @@ function changeAnimationTime() {
 
 setInterval(changeAnimationTime, 3000);
 
-window.onload = dnaText.init;randText;
+window.onload = dnaText.init;
