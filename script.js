@@ -115,7 +115,7 @@ function randText() {
 function setText() {
   var i = (Math.random() * titles.length) | 0;
   overlay.innerText = titles[i];
-  overlay.style.opacity = 0.75;
+  overlay.style.opacity = 0.4;
 }
 
 function changeAnimationTime() {
