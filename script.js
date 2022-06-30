@@ -91,7 +91,7 @@ var dnaText = {
     var letters = '0123456789abcdef';
     var color = '#B';
     for (var i = 0; i < 5; i++) {
-      color += letters[Math.floor(Math.random() * 10)]; // COLOR FACTOR (LESS IS MORE MONOTONE)
+      color += letters[Math.floor(Math.random() * 16)]; // COLOR FACTOR (LESS IS MORE MONOTONE)
     }
     ctx.fillStyle = color
   }
