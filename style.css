@@ -5,7 +5,7 @@
 
 canvas {
   display: block;
-  filter: blur(1.3px) brightness(90%) hue-rotate(140deg) saturate(270%);
+  filter: blur(1.8px) brightness(90%) hue-rotate(140deg) saturate(270%);
   transition: 1050ms all ease-in-out;
   backface-visibility: hidden;
   animation: interference var(--animation-time) infinite;
@@ -27,8 +27,8 @@ canvas {
     left: 50%;
     margin-top: 50px;
     margin-left: 30px;
-    animation: rgb 2s linear infinite;
-    transition: opacity .15s ease-in-out;
+    animation: rgb 2.5s linear infinite, 3s ease 0s normal forwards 1 fadein;
+    transition: opacity .65s ease-in-out;
 }
 
 #container {
@@ -36,55 +36,27 @@ canvas {
 }
 
 @keyframes interference {
-    0% {
-      transform: skewX(0deg);
-      filter: blur(1.3px) hue-rotate(140deg) saturate(270%) brightness(60%);
-    }
-    1% {
-        transform: skewX(5deg);
-    }
-    2% {
-        transform: skewX(0deg);
-    }
-    31% {
-        transform: skewX(-2deg);
-        filter: blur(1.6px) hue-rotate(155deg) saturate(800%) brightness(60%);
-    }
-    42% {
-        transform: skewX(1deg);
-        filter: blur(1.2px) hue-rotate(170deg) saturate(800%) brightness(60%);
-    }
-    54% {
-        transform: skewX(0deg);
-        filter: blur(1.3px) hue-rotate(180deg) saturate(370%) brightness(60%);
-    }
-    84% {
-        transform: skewX(0deg);
-        filter: blur(1.8px) hue-rotate(165deg) saturate(370%) brightness(60%);
-    }
-    94% {
-        transform: skewX(1deg);
-        filter: blur(1.3px) hue-rotate(150deg) saturate(370%) brightness(60%);
-    }
-    95% {
-        transform: skewX(-3deg)
-    }
-    96% {
-        transform: skewX(1deg)
-    }
-    100% {
-        transform: skewX(0deg);
-    }
+    0% { transform: skewX(0deg); filter: blur(1.8px) hue-rotate(140deg) saturate(270%) brightness(60%); }
+    1% { transform: skewX(5deg); }
+    2% { transform: skewX(0deg); }
+    31% { transform: skewX(-2deg); filter: blur(2.6px) hue-rotate(155deg) saturate(800%) brightness(60%); }
+    42% { transform: skewX(1deg); filter: blur(1.5px) hue-rotate(170deg) saturate(800%) brightness(60%); }
+    54% { transform: skewX(0deg); filter: blur(1.8px) hue-rotate(180deg) saturate(370%) brightness(60%); }
+    84% { transform: skewX(0deg); filter: blur(2.8px) hue-rotate(165deg) saturate(370%) brightness(60%); }
+    94% { transform: skewX(1deg); filter: blur(1.8px) hue-rotate(150deg) saturate(370%) brightness(60%); }
+    95% { transform: skewX(-3deg); }
+    96% { transform: skewX(1deg); }
+    100% { transform: skewX(0deg); }
 }
 
 @keyframes rgb {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  50% {
-    filter: hue-rotate(180deg);
-  }  
-  100% {
-    filter: hue-rotate(360deg);
-  }
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(180deg); }  
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes fadein{
+  0% { opacity:0; }
+  66% { opacity:0; }
+  100% { opacity:.65; }
 }

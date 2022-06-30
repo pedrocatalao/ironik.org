@@ -30,9 +30,9 @@ var dnaText = {
     setInterval(function(){
       dnaText.changeLetter(cont);
       dnaText.getPixels(dnaText.tmpCanvas, dnaText.tmpCtx);
-    }, 455); // TRANSITION
+    }, 666); // CHAR TRANSITION TIME
 
-      dnaText.makeSpecks(3500); // PARTICLES
+      dnaText.makeSpecks(3000); // PARTICLES
       dnaText.animate();
   }, 
   currentPos: 0,
@@ -75,8 +75,8 @@ var dnaText = {
       p = dnaText.Specks[i];
       pPos = dnaText.SpeckPositions[i];
       if (dnaText.Specks.indexOf(p) === dnaText.SpeckPositions.indexOf(pPos)) {
-        p.x += (pPos.x - p.x) * 1.75;
-        p.y += (pPos.y - p.y) * 1.75;
+        p.x += (pPos.x - p.x) * 1.91; // HORIZONTAL PARTICLE MOVEMENT SPEED FACTOR (MORE IS SLOWER)
+        p.y += (pPos.y - p.y) * 1.91; // VERTICAL
         p.draw(dnaText.ctx);
       }
     }
@@ -91,7 +91,7 @@ var dnaText = {
     var letters = '0123456789abcdef';
     var color = '#B';
     for (var i = 0; i < 5; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
+      color += letters[Math.floor(Math.random() * 10)]; // COLOR FACTOR (LESS IS MORE MONOTONE)
     }
     ctx.fillStyle = color
   }
