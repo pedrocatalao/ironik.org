@@ -108,14 +108,14 @@ var titles = [
 ];
 
 function randText() {
-  overlay.style.opacity = 0.5;
+  overlay.style.opacity = 0.6;
   setTimeout(setText, 150);
 }
 
 function setText() {
   var i = (Math.random() * titles.length) | 0;
   overlay.innerText = titles[i];
-  overlay.style.opacity = 0.4;
+  overlay.style.opacity = 0.6;
 }
 
 function changeAnimationTime() {
