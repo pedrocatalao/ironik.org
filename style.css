@@ -14,7 +14,7 @@
   left: 30%;
   margin: -20px 0 0 -20px;
   pointer-events: none;
-  opacity: 30%;
+  opacity: 15%;
   animation: 4s ease 0s normal forwards 1 fadein;
   mix-blend-mode: hue;
 }
