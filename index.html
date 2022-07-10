@@ -1,10 +1,13 @@
 <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Courier+Prime" rel="stylesheet">
 <link href='style.css' rel='stylesheet' type='text/css'>
-<body bgcolor="#000000">
+<body bgcolor="#000000" onclick="randText()" ></body>
+  <script src="https://unpkg.com/kinet@2.2.1/dist/kinet.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="script.js"></script>
   <div id="container">
     <canvas id=canvas></canvas>
-    <div id="overlay" onclick="randText()">isn't it?</div>
+    <div id="overlay">isn't it?</div>
   </div>
+  <div id="circle" class="circle"></div>
+  <script type="text/javascript" charset="utf-8" src="cursor.js"></script>
 </body>

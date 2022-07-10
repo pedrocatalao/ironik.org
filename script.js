@@ -32,7 +32,7 @@ var dnaText = {
       dnaText.getPixels(dnaText.tmpCanvas, dnaText.tmpCtx);
     }, 666); // CHAR TRANSITION TIME
 
-      dnaText.makeSpecks(3000); // PARTICLES
+      dnaText.makeSpecks(450); // PARTICLES
       dnaText.animate();
   }, 
   currentPos: 0,
@@ -75,8 +75,8 @@ var dnaText = {
       p = dnaText.Specks[i];
       pPos = dnaText.SpeckPositions[i];
       if (dnaText.Specks.indexOf(p) === dnaText.SpeckPositions.indexOf(pPos)) {
-        p.x += (pPos.x - p.x) * 1.91; // HORIZONTAL PARTICLE MOVEMENT SPEED FACTOR (MORE IS SLOWER)
-        p.y += (pPos.y - p.y) * 1.91; // VERTICAL
+        p.x += (pPos.x - p.x) * 1.86; // HORIZONTAL PARTICLE MOVEMENT SPEED FACTOR (MORE IS SLOWER)
+        p.y += (pPos.y - p.y) * 1.81; // VERTICAL
         p.draw(dnaText.ctx);
       }
     }

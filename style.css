@@ -1,6 +1,22 @@
 * {
   margin: 0;
   padding: 0;
+  cursor: none;
+}
+
+.circle {
+  width: 350px;
+  height: 350px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  margin: -20px 0 0 -20px;
+  pointer-events: none;
+  opacity: 30%;
+  animation: 4s ease 0s normal forwards 1 fadein;
+  mix-blend-mode: hue;
 }
 
 canvas {
@@ -12,7 +28,7 @@ canvas {
 }
 
 #overlay {
-    cursor: pointer;
+    cursor: none;
     opacity: 0.6;
     font-family: 'Shadows Into Light';
     font-size: 4.5vh;
