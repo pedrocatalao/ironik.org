@@ -55,7 +55,7 @@ var dnaText = {
       gridY = (gridSize < 6 ? 6 : gridSize);
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    var fontSize = dnaText.H * 0.5
+    var fontSize = dnaText.H * 0.4
     ctx.font = fontSize + "px Copperplate";
     ctx.fillText(keyword, canvas.width / 2 - ctx.measureText(keyword).width / 2, canvas.height / 2 + fontSize * 0.4);
     var idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
