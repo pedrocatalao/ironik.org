@@ -56,7 +56,7 @@ var dnaText = {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     var fontSize = dnaText.H * 0.5
-    ctx.font = fontSize + "px Courier Prime";
+    ctx.font = fontSize + "px Brush Script MT";
     ctx.fillText(keyword, canvas.width / 2 - ctx.measureText(keyword).width / 2, canvas.height / 2 + fontSize * 0.4);
     var idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
     var buffer32 = new Uint32Array(idata.data.buffer);
