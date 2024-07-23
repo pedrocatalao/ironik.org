@@ -26,7 +26,7 @@ var dnaText = {
     dnaText.canvas.height = dnaText.H;
 
 
-    var cont = "🄸🅁🄾🄽🄸🄺";
+    var cont = "ironik";
     setInterval(function(){
       dnaText.changeLetter(cont);
       dnaText.getPixels(dnaText.tmpCanvas, dnaText.tmpCtx);
